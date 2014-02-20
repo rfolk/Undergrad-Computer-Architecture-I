@@ -56,9 +56,9 @@ main:
 # Print the result
 	out:
 		li   $v0, 1      # load the system call to print an integer
-		la   $t5, number # load the address of the number
-		lw   $t6, 0($t5) # load the value of $t0
-		move $a0, $t6    # prime integer for printing by moving to $a0
+		la   $t0, number # load the address of the number
+		lw   $t1, 0($t0) # load the value of $t0
+		move $a0, $t1    # prime integer for printing by moving to $a0
 		syscall          # print the integer
 
 		la   $a0, ansr1  # load the address of the "has" string
