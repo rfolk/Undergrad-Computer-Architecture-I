@@ -93,17 +93,17 @@ modulus:
 	sw    $s1, 4($sp)      # assign the second argument
 	sw    $s0, 0($sp)      # assign the first argument
 	slt   $t0, $s0,   $s1  # if value < divisor
-	beq   $t0, $0,    cont # continue finding modulus
-	add   $v0, $s0,   $0   # return value
-	addi  $sp, $sp,   12
+	bne   $t0, $0,    cont # continue finding modulus
+	sub   $s0, $s0,   $s1  # increase stack
+	jal   modulus          # keep finding modulus
+	lw    $s0, 0($sp)      # restore first argument
+	lw    $ra, 8($sp)      # restore address of return value
+	addi  $sp, $sp,   12   # restore stack
 	jr    $ra              # address of return value
 	cont:
-		sub $s0, $s0,   $s1
-		jal modulus
-	lw    $s0, 0($sp)
-	lw    $ra, 8($sp)
-	addi  $sp, $sp,   12
-	jr    $ra
+		add   $v0, $s0,   $0 # return value
+		addi  $sp, $sp,   12 # restore stack
+		jr    $ra            # address of return value
 ################################################################################
 
 ################################################################################
