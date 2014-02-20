@@ -59,29 +59,29 @@ main:
 
 ################################################################################
 # Print the output to the screen
-   li $v0, 1 # load system call to print integer
-   la $t0, value #load address of value
-   lw $t1, 0($t0) #load value of value to $t2
-   add $a0, $t1, $0 # move integer to be printed into $a0
-   syscall #print the number entered again
+   li  $v0, 1         # load the system call to print an integer
+   la  $t0, value     # load the address of value
+   lw  $t1, 0($t0)    # load the value of $t0
+   add $a0, $t1,   $0 # prime integer for printing by moving to $a0
+   syscall            # print the integer
 
-   la $a0, str_mod #load address of mod string
-   li $v0, 4 #load system call to print str
-   syscall # print part of the answer sentence
+   la $a0, str_mod    # load the address of the "mod" string
+   li $v0, 4          # load the system call to print a string
+   syscall            # print the string
 
-   li $v0, 1 # load system call to print integer
-   la $t0, divisor #load address of divisor
-   lw $t1, 0($t0) #load value of divisor to $t2
-   add $a0, $t1, $0 # move integer to be printed into $a0
-   syscall #print the number entered again
+   li $v0, 1          # load the system call to print an integer
+   la $t0, divisor    # load the address of divisor
+   lw $t1, 0($t0)     # load the value of $t0
+   add $a0, $t1, $0   # prime integer for printing by moving to $a0
+   syscall            # print the integer
 
-   la $a0, str_eql #load address of equal string
-   li $v0, 4 #load system call to print str
-   syscall # print part of the answer sentence
+   la $a0, str_eql    # load the address of the "equal" string
+   li $v0, 4          # load the system call to print a string
+   syscall            # print the string
 
-   li $v0, 1 #load system call to print integer
-   add $a0, $s2, $0 #load address of answer
-   syscall #print the number entered again
+   li $v0, 1          # load the system call to print an integer
+   add $a0, $s2, $0   # prime integer for printing by moving to $a0
+   syscall            # print the integer
    j exit
 ################################################################################
 
