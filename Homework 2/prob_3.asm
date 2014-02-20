@@ -58,7 +58,7 @@ main:
 		li   $v0, 1      # load the system call to print an integer
 		la   $t0, number # load the address of the number
 		lw   $t1, 0($t0) # load the value of $t0
-		move $a0, $t1    # prime integer for printing by moving to $a0
+		add $a0, $t1, $0 # prime integer for printing by moving to $a0
 		syscall          # print the integer
 
 		la   $a0, ansr1  # load the address of the "has" string
@@ -67,7 +67,7 @@ main:
 
 		li   $v0, 1      # load the system call to print an integer
 		#lw   $t0, $s0    # load the value of the number of 1 bits
-		move $a0, $s0    # prime the integer for printing by moving to $a0
+		add $a0, $s0, $0 # prime the integer for printing by moving to $a0
 		syscall          # print the integer
 
 		la   $a0, ansr2  # load the address of the "bit(s) for 1." string
