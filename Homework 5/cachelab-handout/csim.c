@@ -1,3 +1,9 @@
+/**
+  * Name: Russell Folk
+  * loginID: rfolk
+  */
+
+
 #include "cachelab.h"
 #include <getopt.h>   /* for parsing command line arguments */
 #include <stdio.h>    /* for input and output */

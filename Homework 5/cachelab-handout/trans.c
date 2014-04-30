@@ -1,3 +1,9 @@
+/**
+  * Name: Russell Folk
+  * loginID: rfolk
+  */
+
+
 /*
  * trans.c - Matrix transpose B = A^T
  *
