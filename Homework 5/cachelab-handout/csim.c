@@ -313,17 +313,13 @@ Result * run_trace( Arguments * args )
 					cache[ cache_index ][ i ].timer = cache_timer++;
 
 					if ( operation == 'M' )
-					{
 						++hit;
-						results->hits += 1;
-					}
 					break;
 				}
 				/* no entry in the cache */
 				else if ( cache[ cache_index ][ i ].value == -1 )
 				{
 					++miss;
-					results->misses += 1;
 
 					/* add to cache */
 					cache[ cache_index ][ i ].value = cache_value;
@@ -341,21 +337,19 @@ Result * run_trace( Arguments * args )
 					}
 
 					++miss;
-					results->misses += 1;
 					++eviction;
-					results->evictions += 1;
 
 					if ( operation == 'M' )
-					{
 						++hit;
-						results->hits += 1;
-					}
 
 					cache[ cache_index ][ smallest ].value = cache_value;
 					cache[ cache_index ][ smallest ].timer = cache_timer++;
 					break;
 				}
 			}
+			results->hits     += hit;
+			results->misses   += miss;
+			results->eviction += eviction;
 			/* print verbose if neccessary */
 		}
 	} /* end each line */
