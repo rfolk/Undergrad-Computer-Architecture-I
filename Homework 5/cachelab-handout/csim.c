@@ -230,7 +230,8 @@ Result * run_trace( Arguments * args )
 
 
 	char operation;
-	char[256] memory_address;
+	char memory_address[ 256 ];
+	int number_bytes_str[ 256 ];
 	int number_bytes;
 	bool hit;
 	bool miss;
@@ -286,8 +287,10 @@ Result * run_trace( Arguments * args )
 		{
 			if ( char_input == '\n' )
 				break;
-			number_bytes[ position++ ] = char_input;
+			number_bytes_str[ position++ ] = char_input;
 		}
+		number_bytes_str[ position ] = '\0';
+		number_bytes = atoi( number_bytes_str );
 
 		hit = 0;
 		miss = 0;
@@ -296,11 +299,11 @@ Result * run_trace( Arguments * args )
 		/* we gotta parse this line... */
 		if ( operation != 'I' )
 		{
-			long decimal_memory_address = strtol( memory_address, '\0', 16 );
-			int cache_index = ( ( int ) ( decimal_memory_address >> block_offset_bits_exp ) ) & set_index_bits;
-			int cache_value = decimal_memory_address >> ( set_index_bits_exp + block_offset_bits_exp );
+			long decimal_memory_address = strtol( args->memory_address, '\0', 16 );
+			int cache_index = ( ( int ) ( decimal_memory_address >> args->block_offset_bits_exp ) ) & args->set_index_bits;
+			int cache_value = decimal_memory_address >> ( args->set_index_bits_exp + args->block_offset_bits_exp );
 
-			for ( i = 0; i < lines_per_set; ++i )
+			for ( i = 0; i < args->lines_per_set; ++i )
 			{
 				/* cache hit */
 				if ( cache[ cache_index ][ i ].value == cache_value )
