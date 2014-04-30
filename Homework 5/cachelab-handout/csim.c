@@ -309,7 +309,6 @@ Result * run_trace( Arguments * args )
 				if ( cache[ cache_index ][ i ].value == cache_value )
 				{
 					++hit;
-					results->hits += 1;
 					cache[ cache_index ][ i ].timer = cache_timer++;
 
 					if ( operation == 'M' )
