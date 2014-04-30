@@ -1,13 +1,15 @@
 #include "cachelab.h"
-#include <stdbool.h> /* for boolean types */
 #include <getopt.h>  /* for parsing command line arguments */
+#include <stdlib.h> /* for basic funcionality */
 #include <string.h> /* for string and memory functions */
+#include <stdbool.h> /* for boolean types */
 
 
 
 /* validate the pointer exists learned this trick in senior thesis */
-#define CHECK_PTR(p) if (NULL == (p)) { \
-  printf( "\n\aNO MEMORY in file %s:%d\n\n", __FILE__, __LINE__ ); \
+#define CHECK_PTR( p ) if ( NULL == ( p ) ) \
+{ \
+  fprintf( stdout, "\n\aNO MEMORY in file %s:%d\n\n", __FILE__, __LINE__ ); \
   exit( 1 ); \
 }
 
