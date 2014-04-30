@@ -271,16 +271,15 @@ Result * run_trace( Arguments * args )
 
 		/* get the address */
 		position = 0;
+		memset( memory_address, 0x0, sizeof( memory_address ) );
 		while ( ( char_input = fgetc( trace_file ) ) != EOF )
 		{
 			if ( char_input == ' ' )
 				continue;
-			else if ( char_input == ',' )
+			if ( char_input == ',' )
 				break;
-			else
-				memory_address[ position++ ] = char_input;
+			memory_address[ position++ ] = char_input;
 		}
-		memory_address[ position ] = '\0';
 
 		/* get the size */
 		/*position = 0;
@@ -296,7 +295,7 @@ Result * run_trace( Arguments * args )
 		/* we gotta parse this line... */
 		if ( operation != 'I' )
 		{
-			long decimal_memory_address = strtol( memory_address, '\0', 16 );
+			long decimal_memory_address = strtol( memory_address, NULL, 16 );
 			int cache_index = ( ( int ) ( decimal_memory_address >> args->block_offset_bits_exp ) ) & args->set_index_bits;
 			int cache_value = decimal_memory_address >> ( args->set_index_bits_exp + args->block_offset_bits_exp );
 
