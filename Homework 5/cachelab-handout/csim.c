@@ -231,7 +231,7 @@ Result * run_trace( Arguments * args )
 
 	char operation;
 	char memory_address[ 256 ];
-	int number_bytes_str[ 256 ];
+	char number_bytes_str[ 256 ];
 	int number_bytes;
 	bool hit;
 	bool miss;
@@ -331,10 +331,10 @@ Result * run_trace( Arguments * args )
 					break;
 				}
 				/* last one, need to remove one to make room */
-				else if ( i == lines_per_set - 1 )
+				else if ( i == args->lines_per_set - 1 )
 				{
 					int smallest = i;
-					for ( j = 0; j < lines_per_set; ++j )
+					for ( j = 0; j < args->lines_per_set; ++j )
 					{
 						if ( cache[ cache_index ][ j ].timer < cache[ cache_index ][ smallest ].timer )
 							smallest = j;
