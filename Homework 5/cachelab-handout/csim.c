@@ -1,8 +1,9 @@
 #include "cachelab.h"
-#include <getopt.h>  /* for parsing command line arguments */
-#include <stdlib.h> /* for basic funcionality */
-#include <string.h> /* for string and memory functions */
-#include <stdbool.h> /* for boolean types */
+#include <getopt.h>   /* for parsing command line arguments */
+#include <stdio.h>    /* for input and output */
+#include <stdlib.h>   /* for basic funcionality */
+#include <string.h>   /* for string and memory functions */
+#include <stdbool.h>  /* for boolean types */
 
 
 
