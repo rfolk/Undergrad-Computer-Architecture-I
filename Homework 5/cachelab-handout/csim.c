@@ -32,7 +32,7 @@ typedef struct _Arguments
 
 /* function protoypes */
 void print_help( void );
-Arguments * initialize_arguments( void )
+Arguments * initialize_arguments( void );
 
 
 
