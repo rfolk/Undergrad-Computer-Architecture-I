@@ -3,6 +3,7 @@
 #include <stdio.h>    /* for input and output */
 #include <stdlib.h>   /* for basic funcionality */
 #include <string.h>   /* for string and memory functions */
+#include <math.h>     /* math functions */
 #include <stdbool.h>  /* for boolean types */
 
 
@@ -262,7 +263,7 @@ Result * run_trace( Arguments * args )
 		/* get the operation */
 		while ( ( char_input = fgetc( trace_file ) ) != EOF )
 		{
-			if ( c == ' ' )
+			if ( char_input == ' ' )
 				continue;
 			operation = char_input;
 			break;
