@@ -282,14 +282,14 @@ Result * run_trace( Arguments * args )
 		}
 
 		/* get the size */
-		/*position = 0;
+		position = 0;
 		while ( ( char_input = fgetc( trace_file ) ) != EOF )
 		{
 			if ( char_input == '\n' )
 				break;
-			number_bytes_str[ position++ ] = char_input;
+			/*number_bytes_str[ position++ ] = char_input;*/
 		}
-		number_bytes_str[ position ] = '\0';*/
+		/*number_bytes_str[ position ] = '\0';*/
 		/*number_bytes = atoi( number_bytes_str );*/
 
 		/* we gotta parse this line... */
