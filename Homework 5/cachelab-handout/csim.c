@@ -291,7 +291,7 @@ Result * run_trace( Arguments * args )
 			number_bytes_str[ position++ ] = char_input;
 		}
 		number_bytes_str[ position ] = '\0';
-		number_bytes = atoi( number_bytes_str );
+		/*number_bytes = atoi( number_bytes_str );*/
 
 		hit = 0;
 		miss = 0;
