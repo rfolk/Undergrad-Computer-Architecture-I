@@ -223,8 +223,8 @@ Result * run_trace( Arguments * args )
 	{
 		for ( j = 0; j < args->lines_per_set; ++j )
 		{
-			cache[ i ][ j ]->timer = -1;
-			cache[ i ][ j ]->value = -1;
+			cache[ i ][ j ].timer = -1;
+			cache[ i ][ j ].value = -1;
 		}
 	}
 
@@ -303,11 +303,11 @@ Result * run_trace( Arguments * args )
 			for ( i = 0; i < lines_per_set; ++i )
 			{
 				/* cache hit */
-				if ( cache[ cache_index ][ i ]->value == cache_value )
+				if ( cache[ cache_index ][ i ].value == cache_value )
 				{
 					++hit;
 					results->hits += 1;
-					cache[ cache_index ][ i ]->timer = cache_timer++;
+					cache[ cache_index ][ i ].timer = cache_timer++;
 
 					if ( operation == 'M' )
 					{
@@ -317,14 +317,14 @@ Result * run_trace( Arguments * args )
 					break;
 				}
 				/* no entry in the cache */
-				else if ( cache[ cache_index ][ i ]->value == -1 )
+				else if ( cache[ cache_index ][ i ].value == -1 )
 				{
 					++miss;
 					results->misses += 1;
 
 					/* add to cache */
-					cache[ cache_index ][ i ]->value = cache_value;
-					cache[ cache_index ][ i ]->timer = cache_timer++;
+					cache[ cache_index ][ i ].value = cache_value;
+					cache[ cache_index ][ i ].timer = cache_timer++;
 					break;
 				}
 				/* last one, need to remove one to make room */
@@ -333,7 +333,7 @@ Result * run_trace( Arguments * args )
 					int smallest = i;
 					for ( j = 0; j < lines_per_set; ++j )
 					{
-						if ( cache[ cache_index ][ j ]->timer < cache[ cache_index ][ smallest ]->timer )
+						if ( cache[ cache_index ][ j ].timer < cache[ cache_index ][ smallest ].timer )
 							smallest = j;
 					}
 
@@ -344,12 +344,12 @@ Result * run_trace( Arguments * args )
 
 					if ( operation == 'M' )
 					{
-						++hits;
+						++hit;
 						results->hits += 1;
 					}
 
-					cache[ cache_index ][ smallest ]->value = cache_value;
-					cache[ cache_index ][ smallest ]->timer = cache_timer++;
+					cache[ cache_index ][ smallest ].value = cache_value;
+					cache[ cache_index ][ smallest ].timer = cache_timer++;
 					break;
 				}
 			}
