@@ -42,6 +42,11 @@ void transpose_submit(int M, int N, int A[N][M], int B[M][N])
 		blocksize1 = 6;
 		blocksize2 = 6;
 	}
+	else
+	{
+		blocksize1 = 1;
+		blocksize2 = 1;
+	}
 	for ( i = 0; i < N; i += blocksize1 )
 	{
 		for ( j = 0; j < M; j += blocksize2 )
