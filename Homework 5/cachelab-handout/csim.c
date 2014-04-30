@@ -347,9 +347,9 @@ Result * run_trace( Arguments * args )
 					break;
 				}
 			}
-			results->hits     += hit;
-			results->misses   += miss;
-			results->eviction += eviction;
+			results->hits      += hit;
+			results->misses    += miss;
+			results->evictions += eviction;
 			/* print verbose if neccessary */
 		}
 	} /* end each line */
