@@ -23,10 +23,10 @@ char transpose_submit_desc[] = "Transpose submission";
 void transpose_submit(int M, int N, int A[N][M], int B[M][N])
 {
 	int i, j, k, l;
-	int blocksize = M / 4;
-	for ( i = 0; i < M; ++i )
+	int blocksize = N / 4;
+	for ( i = 0; i < N; ++i )
 	{
-		for ( j = 0; j < N; ++j )
+		for ( j = 0; j < M; ++j )
 		{
 			for ( k = i; k < i + blocksize; ++k )
 			{
