@@ -293,16 +293,16 @@ Result * run_trace( Arguments * args )
 		number_bytes_str[ position ] = '\0';*/
 		/*number_bytes = atoi( number_bytes_str );*/
 
-		hit = 0;
-		miss = 0;
-		eviction = 0;
-
 		/* we gotta parse this line... */
 		if ( operation != 'I' )
 		{
 			long decimal_memory_address = strtol( memory_address, '\0', 16 );
 			int cache_index = ( ( int ) ( decimal_memory_address >> args->block_offset_bits_exp ) ) & args->set_index_bits;
 			int cache_value = decimal_memory_address >> ( args->set_index_bits_exp + args->block_offset_bits_exp );
+
+			hit = 0;
+			miss = 0;
+			eviction = 0;
 
 			for ( i = 0; i < args->lines_per_set; ++i )
 			{
@@ -332,7 +332,7 @@ Result * run_trace( Arguments * args )
 					break;
 				}
 				/* last one, need to remove one to make room */
-				else if ( i == args->lines_per_set - 1 )
+				else if ( i == ( args->lines_per_set - 1 ) )
 				{
 					int smallest = i;
 					for ( j = 0; j < args->lines_per_set; ++j )
