@@ -1,5 +1,13 @@
 #include "cachelab.h"
 
+
+
+/* function protoypes */
+void printHelp( void );
+
+
+
+
 int main()
 {
     printSummary(0, 0, 0);
