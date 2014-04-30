@@ -232,7 +232,7 @@ Result * run_trace( Arguments * args )
 
 	char operation;
 	char memory_address[ 256 ];
-	char number_bytes_str[ 256 ];
+	/*char number_bytes_str[ 256 ];*/
 	/*int number_bytes;*/
 	bool hit;
 	bool miss;
@@ -283,14 +283,14 @@ Result * run_trace( Arguments * args )
 		memory_address[ position ] = '\0';
 
 		/* get the size */
-		position = 0;
+		/*position = 0;
 		while ( ( char_input = fgetc( trace_file ) ) != EOF )
 		{
 			if ( char_input == '\n' )
 				break;
 			number_bytes_str[ position++ ] = char_input;
 		}
-		number_bytes_str[ position ] = '\0';
+		number_bytes_str[ position ] = '\0';*/
 		/*number_bytes = atoi( number_bytes_str );*/
 
 		hit = 0;
