@@ -234,9 +234,9 @@ Result * run_trace( Arguments * args )
 	char memory_address[ 256 ];
 	/*char number_bytes_str[ 256 ];*/
 	/*int number_bytes;*/
-	bool hit;
-	bool miss;
-	bool eviction;
+	int hit;
+	int miss;
+	int eviction;
 
 
 	char char_input;
