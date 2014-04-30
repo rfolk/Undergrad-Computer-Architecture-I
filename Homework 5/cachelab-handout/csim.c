@@ -233,7 +233,7 @@ Result * run_trace( Arguments * args )
 	char operation;
 	char memory_address[ 256 ];
 	char number_bytes_str[ 256 ];
-	int number_bytes;
+	/*int number_bytes;*/
 	bool hit;
 	bool miss;
 	bool eviction;
