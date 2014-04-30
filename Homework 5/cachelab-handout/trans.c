@@ -24,14 +24,25 @@ void transpose_submit(int M, int N, int A[N][M], int B[M][N])
 {
 	int i, j, k, l;
 	int tmp;
-	int blocksize = N / 4;
-	for ( i = 0; i < N; i += blocksize )
+	int blocksize1;
+	int blocksize2;
+	if ( M == 32 )
 	{
-		for ( j = 0; j < M; j += blocksize )
+		blocksize1 = 8;
+		blocksize2 = 8;
+	}
+	else if ( M == 64 )
+	{
+		blocksize1 = 8;
+		blocksize2 = 4;
+	}
+	for ( i = 0; i < N; i += blocksize1 )
+	{
+		for ( j = 0; j < M; j += blocksize2 )
 		{
-			for ( k = i; k < i + blocksize; ++k )
+			for ( k = i; k < i + blocksize1; ++k )
 			{
-				for ( l = j; l < j + blocksize; ++l )
+				for ( l = j; l < j + blocksize2; ++l )
 				{
 					tmp = A[ k ][ l ];
 					B[ l ][ k ] = tmp;
