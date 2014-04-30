@@ -83,7 +83,7 @@ int main( int argc , char ** argv )
 				// no trace file? print help.
 				if ( strlen( optarg ) == 0 )
 					args->help = true;
-				args->trace_file = ( char * ) calloc( strlen( optarg ) + 1 );
+				args->trace_file = ( char * ) calloc( 1, strlen( optarg ) + 1 );
 				CHECK_PTR( args->trace_file );
 				strcpy( args->trace_file , optarg );
 				break;
