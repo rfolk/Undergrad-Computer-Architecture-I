@@ -59,11 +59,11 @@ void recursive_transpose( int M, int N, int row_offset, int col_offset, int A[N]
 	}
 	else
 	{
-		int rlimit = row_off + N;
-		int climit = col_off + M;
+		int row_limit = row_offset + N;
+		int col_limit = col_offset + M;
 		int i, j
-		for ( i = row_off; i < rlimit; ++i )
-			for( j = col_off; j < climit; ++j )
+		for ( i = row_offset; i < row_limit; ++i )
+			for( j = col_offset; j < col_limit; ++j )
 				A[j][i] = B[i][j];
 	}
 }
