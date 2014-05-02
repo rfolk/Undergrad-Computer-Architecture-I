@@ -37,7 +37,10 @@ void transpose_submit(int M, int N, int A[N][M], int B[M][N])
 		/* 6.2
 		blocksize1 = 8;
 		blocksize2 = 4;*/
+		/* 6.9, 343
 		blocksize1 = 8;
+		blocksize2 = 8;*/
+		blocksize1 = 12;
 		blocksize2 = 8;
 	}
 	else if ( M == 64 )
@@ -45,8 +48,11 @@ void transpose_submit(int M, int N, int A[N][M], int B[M][N])
 		/* 1.8
 		blocksize1 = 8;
 		blocksize2 = 4;*/
+		/* 0, 5496
 		blocksize1 = 16;
-		blocksize2 = 12;
+		blocksize2 = 12;*/
+		blocksize1 = 8;
+		blocksize2 = 2;
 	}
 	else
 	{
