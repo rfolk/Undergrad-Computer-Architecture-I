@@ -11,9 +11,11 @@ for i in range(1,65):
         shutil.copyfile("../cachelab.c", build_dir + "/cachelab.c")
         shutil.copyfile("../cachelab.h", build_dir + "/cachelab.h")
         shutil.copyfile("../csim.c", build_dir + "/csim.c")
+        shutil.copyfile("../csim-ref", build_dir + "/csim-ref")
         shutil.copyfile("../tracegen.c", build_dir + "/tracegen.c")
         shutil.copyfile("../trans.c", build_dir + "/trans.c")
         shutil.copyfile("../test-trans.c", build_dir + "/test-trans.c")
+        shutil.copyfile("../test-csim", build_dir + "/test-csim")
 
         f = open(filename,"w")
         f.write("#include <stdio.h>\n#include \"cachelab.h\"\n")
