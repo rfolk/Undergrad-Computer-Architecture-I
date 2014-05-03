@@ -8,6 +8,6 @@ for i in range(1,65):
         build_dir = "test_" + str(i) + "_" + str(j)
         try:
         		os.chdir(build_dir)
-        		os.system("make")
+        		os.system("make > makes")
         finally:
         		os.chdir(cwd)
