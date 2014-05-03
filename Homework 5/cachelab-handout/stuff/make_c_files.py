@@ -1,8 +1,20 @@
 #!/opt/local/bin/python
+import shutil
+import os
 
 for i in range(1,65):
     for j in range(1,65):
-        filename = "runner_" + str(i) + "_" + str(j) + "/trans.c"
+        build_dir = "test_" + str(i) + "_" + str(j)
+        os.system("mkdir " + build_dir)
+        filename = build_dir + "/" + "trans.c"
+        shutil.copyfile("../Makefile", build_dir + "/Makefile")
+        shutil.copyfile("../cachelab.c", build_dir + "/cachelab.c")
+        shutil.copyfile("../cachelab.h", build_dir + "/cachelab.h")
+        shutil.copyfile("../csim.c", build_dir + "/csim.c")
+        shutil.copyfile("../tracegen.c", build_dir + "/tracegen.c")
+        shutil.copyfile("../trans.c", build_dir + "/trans.c")
+        shutil.copyfile("../test-trans.c", build_dir + "/test-trans.c")
+
         f = open(filename,"w")
         f.write("#include <stdio.h>\n#include \"cachelab.h\"\n")
         f.write("int is_transpose(int M, int N, int A[N][M], int B[M][N]);\n")
@@ -46,4 +58,3 @@ for i in range(1,65):
         f.write("    return 1;\n")
         f.write("}\n")
         f.close()
-
