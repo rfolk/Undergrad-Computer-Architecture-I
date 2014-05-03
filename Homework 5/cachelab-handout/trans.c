@@ -52,11 +52,11 @@ void transpose_submit(int M, int N, int A[N][M], int B[M][N])
 		{
 			for ( k = i; k < i + blocksize1; ++k )
 			{
-				if ( M == 67 && N == 61 && k == M )
+				if ( M == 61 && N == 67 && k == M )
 					break;
 				for ( l = j; l < j + blocksize2; ++l )
 				{
-					if ( M == 67 && N == 61 && l == N )
+					if ( M == 61 && N == 67 && l == N )
 						break;
 					B[ l ][ k ] = A[ k ][ l ];
 				}
