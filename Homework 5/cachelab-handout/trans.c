@@ -29,7 +29,6 @@ char transpose_submit_desc[] = "Transpose submission";
 void transpose_submit(int M, int N, int A[N][M], int B[M][N])
 {
 	int i, j, k, l;
-	int tmp;
 	int blocksize1;
 	int blocksize2;
 	if ( M == 32 )
