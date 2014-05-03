@@ -111,20 +111,6 @@ void transpose_submit(int M, int N, int A[N][M], int B[M][N])
 {
 	int i, j, k, l;
 	int tmp;
-	for ( i = 0; i < N; i += blocksize1 )
-	{
-		for ( j = 0; j < M; j += blocksize2 )
-		{
-			for ( k = i; k < i + blocksize1; ++k )
-			{
-				for ( l = j; l < j + blocksize2; ++l )
-				{
-					tmp = A[ k ][ l ];
-					B[ l ][ k ] = tmp;
-				}
-			}
-		}
-	}
 }
 
 /*
